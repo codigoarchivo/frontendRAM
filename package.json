@@ -1,0 +1,41 @@
+{
+  "name": "rick-and-morty",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
+  },
+  "compilerOptions": {
+    "types": [
+      "cypress"
+    ]
+  },
+  "dependencies": {
+    "@apollo/client": "^3.7.15",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.14.2",
+    "@types/node": "18.15.11",
+    "@types/react": "18.0.37",
+    "@types/react-dom": "18.0.11",
+    "axios": "^1.4.0",
+    "deepmerge": "^4.3.1",
+    "eslint": "8.38.0",
+    "eslint-config-next": "13.3.0",
+    "graphql": "^16.6.0",
+    "lodash": "^4.17.21",
+    "next": "13.3.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "sharp": "^0.32.1",
+    "typescript": "5.0.4"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.195"
+  }
+}

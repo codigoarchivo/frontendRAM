@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
+
+:root {
+  /* color */
+  --primary-glow: #73BBC9;
+  --secondary-glow: #080202;
+  --tertiary-glow: #ffff;
+  /* transparent */
+  --primary-transparent: rgba(0, 0, 0, 0.582);
+  --secondary-transparent: rgba(0, 0, 0, 0.4);
+  --tertiary-transparent: rgba(255, 255, 255, 0.2);
+  /* hover */
+  --primary-hover: #ddd;
+  --secondary-hover: #f2f2f2;
+  /* text */
+  --primary-text-glow: #f1f1f1;
+  --secondary-text-glow: #121212;
+  /* shadow */
+  --box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+html,
+body {
+  box-sizing: border-box;
+  font-family: 'Roboto', Verdana, Geneva, Tahoma, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+/* icons */
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
+}
+
+/* icons */
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  -webkit-animation-duration: 2s;
+  -webkit-animation-fill-mode: both;
+  -webkit-animation-name: fadeIn;
+  animation-duration: 2s;
+  animation-fill-mode: both;
+  animation-name: fadeIn;
+  margin-bottom: 100px;
+}

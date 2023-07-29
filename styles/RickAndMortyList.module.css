@@ -1,0 +1,141 @@
+
+.row {
+    display: grid;
+    row-gap: 20px;
+}
+
+
+.taskContent,
+.actionsContent,
+.actionsContent .actionsRow,
+.actionsContent .actionsRow h1,
+.actionsContent .actionsRow .actions {
+    padding: 10px;
+}
+
+.actionsContent .actionsRow {
+    align-items: center;
+    background-color: var(--primary-glow);
+    border-radius: 5px;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    justify-content: space-between;
+}
+
+.actionsContent .actionsRow .actions {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.actionsContent .actionsRow .actions input[type=search] {
+    background: var(--primary-text-glow);
+    border: none;
+    display: inline-block;
+    font-size: 16px;
+    padding: 15px;
+    width: 100%;
+}
+
+.actionsContent .actionsRow .actions input[type=search]:focus {
+    background-color: var(--primary-hover);
+    outline: none;
+}
+
+
+.actionsContent .actionsRow .actions li:nth-last-child(1) button:hover,
+.actionsContent .actionsRow .actions li:nth-last-child(1) button:focus {
+    background-color: var(--tertiary-glow);
+    box-shadow: var(--box-shadow);
+    color: var(--secondary-glow);
+    transition: .3s all;
+}
+
+.actionsContent .actionsRow .actions li:nth-last-child(1) button {
+    background-color: var(--secondary-glow);
+    border: none;
+    color: var(--primary-text-glow);
+    cursor: pointer;
+    font-size: 16px;
+    margin: .1px 0;
+    opacity: 0.9;
+    padding: 15px;
+    width: 100%;
+}
+
+.taskContent {
+    width: 100%;
+}
+
+.taskContent .table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid var(--primary-hover);
+    width: 100%;
+}
+
+.taskContent .table th,
+.taskContent .table td {
+    padding: 8px;
+    text-align: left;
+}
+
+.taskContent .table tr {
+    border-bottom: 3px solid var(--primary-hover);
+}
+
+.taskContent .table tr:nth-child(even) {
+    background-color: var(--secondary-hover)
+}
+
+.taskContent .table tfoot tr td {
+    column-gap: 3px;
+    -moz-column-gap: 3px;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.taskContent .table tfoot tr td span {
+    font-size: .9rem;
+}
+
+@media screen and (max-width: 900px) {
+    .actionsContent .actionsRow {
+        display: grid;
+    }
+
+    .taskContent .table {
+        border: 0;
+    }
+
+    .taskContent .table thead {
+        display: none;
+    }
+
+    .taskContent .table tr {
+        border-bottom: 3px solid var(--primary-hover);
+        display: block;
+        margin-bottom: .625em;
+    }
+
+    .taskContent .table td {
+        border-bottom: 1px solid var(--primary-hover);
+        display: flex;
+        justify-content: space-between;
+        text-align: right;
+        width: auto;
+        align-items: center;
+    }
+
+    .taskContent .table tbody tr td[data-label]:before {
+        content: attr(data-label);
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .taskContent .table td:last-child {
+        border-bottom: 0;
+    }
+}
