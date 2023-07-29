@@ -1,20 +1,20 @@
-import { GetServerSideProps } from "next";
-import { useContext, useEffect } from "react";
-import Image from "next/image";
-import { NextPage } from "next";
-import { Button, Avatar, Container, Stack, Chip } from "@mui/material";
-import { Layouts } from "@/src/layouts";
+import { GetServerSideProps } from 'next';
+import { useContext, useEffect } from 'react';
+import Image from 'next/image';
+import { NextPage } from 'next';
+import { Button, Avatar, Container, Stack, Chip } from '@mui/material';
+import { Layouts } from '@/src/layouts';
 import {
   IRickAndMortyResults,
   IRickAndMortyInfo,
-} from "@/src/interfaces/rickAndMorty";
-import { useRouter } from "next/navigation";
-import { CounterContext } from "@/src/context";
-import { postTrickandmorty } from "@/database/dbTrickandmorty";
-import styles from "@/styles/RickAndMortyList.module.css";
+} from '@/src/interfaces/rickAndMorty';
+import { useRouter } from 'next/navigation';
+import { CounterContext } from '@/src/context';
+import { postTrickandmorty } from '@/database/dbTrickandmorty';
+import styles from '@/styles/RickAndMortyList.module.css';
 
 // apollo
-// import { queryrickAndMortyPage } from "@/src/graphql/apollo/queryrickAndMortyPage";
+// import { queryrickAndMortyPage } from '@/src/graphql/apollo/queryrickAndMortyPage';
 
 interface Props {
   info: IRickAndMortyInfo;
@@ -30,7 +30,7 @@ const rickAndMortyPage: NextPage<Props> = ({ info, results }) => {
   }, [counter]);
 
   return (
-    <Layouts title={"Home"} pageDescription={"Home"}>
+    <Layouts title={'Home'} pageDescription={'Home'}>
       <Container>
         <div className={styles.row}>
           <div className={styles.actionsContent}>
@@ -42,29 +42,29 @@ const rickAndMortyPage: NextPage<Props> = ({ info, results }) => {
             <table className={styles.table}>
               <thead>
                 <tr>
-                  <th scope="col">Image</th>
-                  <th scope="col">Name</th>
-                  <th scope="col">Gender</th>
-                  <th scope="col">Species</th>
-                  <th scope="col">Status</th>
+                  <th scope='col'>Image</th>
+                  <th scope='col'>Name</th>
+                  <th scope='col'>Gender</th>
+                  <th scope='col'>Species</th>
+                  <th scope='col'>Status</th>
                 </tr>
               </thead>
               <tfoot>
                 <tr>
                   <td>
                     <div>
-                      <Button color="secondary" onClick={decrement}>
+                      <Button color='secondary' onClick={decrement}>
                         <span
-                          className="material-symbols-outlined"
-                          style={{ cursor: "pointer" }}
+                          className='material-symbols-outlined'
+                          style={{ cursor: 'pointer' }}
                         >
                           arrow_back_ios
                         </span>
                       </Button>
-                      <Button color="secondary" onClick={increment}>
+                      <Button color='secondary' onClick={increment}>
                         <span
-                          className="material-symbols-outlined"
-                          style={{ cursor: "pointer" }}
+                          className='material-symbols-outlined'
+                          style={{ cursor: 'pointer' }}
                         >
                           arrow_forward_ios
                         </span>
@@ -79,8 +79,8 @@ const rickAndMortyPage: NextPage<Props> = ({ info, results }) => {
               <tbody>
                 {results.map((item, key) => (
                   <tr key={key}>
-                    <td data-label="Image">
-                      <Avatar variant="rounded" sx={{ width: 40, height: 40 }}>
+                    <td data-label='Image'>
+                      <Avatar variant='rounded' sx={{ width: 40, height: 40 }}>
                         <Image
                           src={`${item?.image}`}
                           width={40}
@@ -89,19 +89,19 @@ const rickAndMortyPage: NextPage<Props> = ({ info, results }) => {
                         />
                       </Avatar>
                     </td>
-                    <td data-label="Name">{item?.name}</td>
-                    <td data-label="Gender">{item?.gender}</td>
-                    <td data-label="Species">
-                      <Stack direction="row" spacing={1}>
+                    <td data-label='Name'>{item?.name}</td>
+                    <td data-label='Gender'>{item?.gender}</td>
+                    <td data-label='Species'>
+                      <Stack direction='row' spacing={1}>
                         <Chip
                           label={item?.species}
                           color={
-                            item?.species === "Human" ? "primary" : "error"
+                            item?.species === 'Human' ? 'primary' : 'error'
                           }
                         />
                       </Stack>
                     </td>
-                    <td data-label="Status">{item?.status}</td>
+                    <td data-label='Status'>{item?.status}</td>
                   </tr>
                 ))}
               </tbody>
@@ -116,7 +116,7 @@ const rickAndMortyPage: NextPage<Props> = ({ info, results }) => {
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { page } = ctx.query;
   // apollo
-  // const { characters } = await queryrickAndMortyPage(Number(page), "human");
+  // const { characters } = await queryrickAndMortyPage(Number(page), 'human');
 
   const { characters } = await postTrickandmorty(Number(page));
 
