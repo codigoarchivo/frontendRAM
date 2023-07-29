@@ -1,5 +1,5 @@
 import { GetServerSideProps } from 'next';
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import Image from 'next/image';
 import { NextPage } from 'next';
 import { Button, Avatar, Container, Stack, Chip } from '@mui/material';
@@ -8,7 +8,6 @@ import {
   IRickAndMortyResults,
   IRickAndMortyInfo,
 } from '@/src/interfaces/rickAndMorty';
-import { useRouter } from 'next/navigation';
 import { CounterContext } from '@/src/context';
 import { postTrickandmorty } from '@/database/dbTrickandmorty';
 import styles from '@/styles/RickAndMortyList.module.css';
@@ -21,13 +20,8 @@ interface Props {
   results: IRickAndMortyResults[];
 }
 
-const rickAndMortyPage: NextPage<Props> = ({ info, results }) => {
-  const router = useRouter();
-  const { counter, increment, decrement, reset } = useContext(CounterContext);
-
-  useEffect(() => {
-    router.push(`/?page=${counter}`);
-  }, [counter]);
+const RickAndMortyPage: NextPage<Props> = ({ info, results }) => {
+  const { increment, decrement } = useContext(CounterContext);
 
   return (
     <Layouts title={'Home'} pageDescription={'Home'}>
@@ -126,4 +120,4 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     props: { info, results: characters?.results },
   };
 };
-export default rickAndMortyPage;
+export default RickAndMortyPage;
